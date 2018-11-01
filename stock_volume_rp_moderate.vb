@@ -59,6 +59,7 @@ Sub ticker_vol()
                 ' Add Yearly Change
                 Yearly_Change = Close_Price - Open_Price
                 ws.Range("J" & Summary_Table_Row).Value = Yearly_Change
+                ws.Range("J" & Summary_Table_Row).NumberFormat = "0.000000000000000"
                 ' Add Percent Change
                 If (Open_Price = 0 And Close_Price = 0) Then
                     Percent_Change = 0
@@ -80,7 +81,7 @@ Sub ticker_vol()
       Summary_Table_Row = Summary_Table_Row + 1
       
       'Reset OPen Price
-      Open_Price = ws.Cells(2, 3).Value
+      Open_Price = ws.Cells(i + 1, 3).Value
       ' Reset the Ticker Total
       ticker_Total = 0
 
@@ -96,5 +97,6 @@ Sub ticker_vol()
 Next ws
 
 End Sub
+
 
 
